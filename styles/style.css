@@ -501,7 +501,7 @@ body {
     font-size: 1.2rem;
   }
   .main-content .speakers {
-    max-height: 25rem;
+    height: 25rem;
   }
   .main-content .speakers h2 {
     font-size: 1.5rem;
