@@ -1,11 +1,11 @@
 export default class Carouse_Model{
 
-  #currentItem = 0
-  #allSpeakersArray = document.querySelectorAll(".carousel-items")
-  #wrapper = document.querySelector('.carousel-wrapper')
-  #max_items = this.#allSpeakersArray.length - 1
+  static #currentItem = 0
+  static #allSpeakersArray = document.querySelectorAll(".carousel-items")
+  static #wrapper = document.querySelector('.carousel-wrapper')
+  static #max_items = this.#allSpeakersArray.length - 1
 
-  carousel_arrow_buttons({ev}){
+  static carousel_arrow_buttons({ev}){
     this.#changeCurrentItem({ev_id: ev.id})
     
     document.querySelector(".carousel-label.active").classList.remove("active")
@@ -18,7 +18,7 @@ export default class Carouse_Model{
     })
   }
 
-  carousel_nav(){
+  static carousel_nav(){
     const carousel_nav_main_div = document.getElementById("carousel-nav")
 
     this.#allSpeakersArray.forEach((speaker_div,index) => {
@@ -34,7 +34,7 @@ export default class Carouse_Model{
   // i let all these methods private because i don't need them out of here, so i 
   // made this to don't get confuse with a lot of methods
 
-  #changeCurrentItem({ev_id}){
+  static #changeCurrentItem({ev_id}){
     if(ev_id === "next-button"){
       this.#currentItem++
     } else if(ev_id === "prev-button"){
@@ -48,7 +48,7 @@ export default class Carouse_Model{
     }
   }
 
-  #createInput({index}){
+  static #createInput({index}){
     const input = document.createElement("input")
       input.type = "radio"
       input.name = `carousel-buttons`
@@ -59,7 +59,7 @@ export default class Carouse_Model{
     return input
   }
 
-  #createLabel({input_checked,input_id}){
+  static #createLabel({input_checked,input_id}){
     const label = document.createElement("label")
     label.classList = input_checked === true ? "carousel-label active" : "carousel-label"
     label.htmlFor = input_id
@@ -67,7 +67,7 @@ export default class Carouse_Model{
     return label
   }
 
-  #labelClickEvent({label,speaker_div}){
+  static #labelClickEvent({label,speaker_div}){
     label.addEventListener('click',ev =>{
       document.querySelector(".carousel-label.active").classList.remove("active")
       ev.currentTarget.classList.add("active")
