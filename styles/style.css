@@ -381,6 +381,7 @@ body {
 .container {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .container-body {
@@ -501,7 +502,7 @@ body {
     font-size: 1.2rem;
   }
   .main-content .speakers {
-    height: 25rem;
+    max-height: 25rem;
   }
   .main-content .speakers h2 {
     font-size: 1.5rem;
